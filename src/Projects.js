@@ -22,16 +22,19 @@ function Education() {
 
   const [expandedCard1, setExpandedCard1] = useState(!isSmallScreen);
   const [expandedCard2, setExpandedCard2] = useState(!isSmallScreen);
-const [expandedCard3, setExpandedCard3] = useState(!isSmallScreen);
+  const [expandedCard3, setExpandedCard3] = useState(!isSmallScreen);
+  const [expandedCard4, setExpandedCard4] = useState(!isSmallScreen);
   useEffect(() => {
     if (!isSmallScreen) {
       setExpandedCard1(true);
       setExpandedCard2(true);
       setExpandedCard3(true);
+      setExpandedCard4(true);
     } else {
       setExpandedCard1(false);
       setExpandedCard2(false);
       setExpandedCard3(false);
+      setExpandedCard4(false);
     }
   }, [isSmallScreen]);
 
@@ -63,7 +66,7 @@ const [expandedCard3, setExpandedCard3] = useState(!isSmallScreen);
             variant="h5"
             sx={{ color: theme.palette.contrastText, mb: 4 }}
           >
-            Education
+            Software Projects
           </Typography>
           <Button
             variant="contained"
@@ -92,14 +95,13 @@ const [expandedCard3, setExpandedCard3] = useState(!isSmallScreen);
                   variant="h6"
                   sx={{ color: theme.palette.dark, fontWeight: "bold" }}
                 >
-                  MSc Software Development from Queen’s University Belfast with
-                  Commendation
+                  Student Pulse
                 </Typography>
                 <Typography
                   variant="subtitle2"
                   sx={{ color: theme.palette.contrastText }}
                 >
-                  Sept 2023 – Sept 2024
+                  Full-Stack Wellness Web App
                 </Typography>
               </Box>
               {isSmallScreen && (
@@ -120,20 +122,13 @@ const [expandedCard3, setExpandedCard3] = useState(!isSmallScreen);
             {(!isSmallScreen || expandedCard1) && (
               <Box mt={2}>
                 <Typography variant="body2" sx={{ mb: 1 }}>
-                  - Programming (53): Focused on Java, including Object-Oriented
-                  Programming principles. <br />
-                  - Computing Foundations (61): Provided a strong theoretical
-                  basis in computing. <br />
-                  - Databases (64): Used MySQL for effective database design and
-                  management. <br />
-                  - Software Engineering (73): Covered agile methodologies and
-                  project planning techniques. <br />
-                  - Web Development (62): Developed a Full-Stack web application
-                  using JavaScript frameworks (Node.js and Express.js) and HTML
-                  and CSS. <br />
-                  - Individual Software Development Project (64): Developed a
-                  full-stack web mental health tracking application using
-                  React.js, Node.js and Express.js. <br />
+                  - Designed and developed a web application to monitor student
+                  wellness, providing personalised insights for students and
+                  analytical tools for staff.
+                  <br />- Built with a focus on usability, security, and
+                  scalability. Used Tailwind CSS to create a clean, responsive
+                  interface and accelerate development with utility-first
+                  styling.
                 </Typography>
               </Box>
             )}
@@ -152,14 +147,13 @@ const [expandedCard3, setExpandedCard3] = useState(!isSmallScreen);
                   variant="h6"
                   sx={{ color: theme.palette.dark, fontWeight: "bold" }}
                 >
-                  BEng (Hons.) Civil Engineering from Queen’s University Belfast
-                  with 2:1
+                  Tradecard
                 </Typography>
                 <Typography
                   variant="subtitle2"
                   sx={{ color: theme.palette.contrastText }}
                 >
-                  Sept 2019 – May 2023
+                  Full-Stack Web App
                 </Typography>
               </Box>
               {isSmallScreen && (
@@ -180,15 +174,13 @@ const [expandedCard3, setExpandedCard3] = useState(!isSmallScreen);
             {(!isSmallScreen || expandedCard2) && (
               <Box mt={2}>
                 <Typography variant="body2" sx={{ mb: 1 }}>
-                  - Modules: Design and Communications, Project Management and
-                  Engineering Data, Mathematics and Coding, Project, Structures
-                  and Hydraulics. <br />
-                  - Dissertation: Developed a MATLAB predictive analytics
-                  platform that takes recorded tidal data from Strangford Lough
-                  and predicts the annual energy that could be produced using a
-                  tidal stream-energy turbine. <br />- Completed a placement
-                  year (between Stages 2 and 3) at RPS Group, Belfast, as part
-                  of the flood risk management team.
+                  - Developed a full-stack trading platform with user
+                  authentication, data filtering, and collection management.{" "}
+                  <br />
+                  - Built a normalised MySQL database and ensured secure user
+                  data handling.
+                  <br />- Delivered a responsive interface using Bootstrap and
+                  templated views, with version control via GitHub.
                 </Typography>
               </Box>
             )}
@@ -207,7 +199,13 @@ const [expandedCard3, setExpandedCard3] = useState(!isSmallScreen);
                   variant="h6"
                   sx={{ color: theme.palette.dark, fontWeight: "bold" }}
                 >
-                  Awards and Acknowledgements
+                  Save our Planet
+                </Typography>
+                <Typography
+                  variant="subtitle2"
+                  sx={{ color: theme.palette.contrastText }}
+                >
+                  Java Board Game Project
                 </Typography>
               </Box>
               {isSmallScreen && (
@@ -228,22 +226,57 @@ const [expandedCard3, setExpandedCard3] = useState(!isSmallScreen);
             {(!isSmallScreen || expandedCard3) && (
               <Box mt={2}>
                 <Typography variant="body2" sx={{ mb: 1 }}>
-                  - Degree Plus Award 2023- Awarded for my contribution to
-                  university societies, along with volunteering at the Queen’s
-                  Sport Active Campus Couch to 5k program. Within this, I
-                  developed leadership and coaching skills and completed a LIRF
-                  (Leadership In Running Fitness) qualification. <br />
-                  - Stage 2 Course Representative and Programming Module
-                  Representative – Involved listening to issues or suggestions
-                  from my peers and professionally relaying this information to
-                  senior lecturers. <br />
-                  - Member of the Queen’s Computing Society <br />
-                  - Secretary of Queen’s Engineering Society.
-                  <br />
-                  - Vice President and Social Secretary of the Queen’s Athletics
-                  Club.
-                  <br />- Organiser of the IUAA cross country 2024 and Queen’s
-                  5k 2024.
+                  - Built a multiplayer console-based board game using
+                  object-oriented programming in Java. <br />
+                  - Focused on clean, modular code and user-friendly design
+                  within a team-based Agile workflow.
+                  <br />- Contributed as part of a team to planning,
+                  implementation, and testing using GitLab and Jira.
+                </Typography>
+              </Box>
+            )}
+          </CardContent>
+        </Card>
+
+        <Card sx={{ mb: 4, backgroundColor: theme.palette.light }}>
+          <CardContent>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Box>
+                <Typography
+                  variant="h6"
+                  sx={{ color: theme.palette.dark, fontWeight: "bold" }}
+                >
+                  Tidal Energy Predictive Analysis Tool
+                </Typography>
+              </Box>
+              {isSmallScreen && (
+                <IconButton
+                  onClick={() => setExpandedCard4(!expandedCard4)}
+                  sx={{ color: theme.palette.dark }}
+                  aria-label="toggle details"
+                >
+                  <ExpandMoreIcon
+                    sx={{
+                      transform: expandedCard4 ? "rotate(180deg)" : "none",
+                      transition: "transform 0.3s",
+                    }}
+                  />
+                </IconButton>
+              )}
+            </Box>
+            {(!isSmallScreen || expandedCard4) && (
+              <Box mt={2}>
+                <Typography variant="body2" sx={{ mb: 1 }}>
+                  - Developed a predictive analysis tool using MATLAB, to
+                  process large environmental datasets from tidal measurements
+                  and predict the energy output of a vertical-axis tidal
+                  turbine. <br />- The project involved creating simulations to
+                  calculate Annual Energy Predictions (AEP) for the tidal
+                  turbine, incorporating turbulence effects to enhance accuracy.
                 </Typography>
               </Box>
             )}
