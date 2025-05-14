@@ -79,9 +79,10 @@ function AboutMe() {
               myself, whether that’s getting outside, switching off with a
               podcast, or spending time on hobbies I enjoy. I’ve always had a
               genuine passion for tech, not just as a job, but as something I
-              really enjoy learning about. I love working on side
-              projects and going to tech events like NIDC, where I get to meet
-              like minded people and pick up new ideas.
+              really enjoy learning about. I love working on side projects and
+              going to tech events like Northern Ireland Developers Conference
+              or Women Techmakers, where I get to meet like minded people and
+              pick up new ideas.
             </Typography>
           </CardContent>
         </Card>
