@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/your-repo-name/static/css/main.0c5da0df.css",
-    "main.js": "/your-repo-name/static/js/main.03b0c087.js",
-    "static/js/453.47ed8d4d.chunk.js": "/your-repo-name/static/js/453.47ed8d4d.chunk.js",
-    "index.html": "/your-repo-name/index.html",
-    "main.0c5da0df.css.map": "/your-repo-name/static/css/main.0c5da0df.css.map",
-    "main.03b0c087.js.map": "/your-repo-name/static/js/main.03b0c087.js.map",
-    "453.47ed8d4d.chunk.js.map": "/your-repo-name/static/js/453.47ed8d4d.chunk.js.map"
+    "main.css": "/cvapp/static/css/main.0c5da0df.css",
+    "main.js": "/cvapp/static/js/main.746b46e5.js",
+    "static/js/453.47ed8d4d.chunk.js": "/cvapp/static/js/453.47ed8d4d.chunk.js",
+    "index.html": "/cvapp/index.html",
+    "main.0c5da0df.css.map": "/cvapp/static/css/main.0c5da0df.css.map",
+    "main.746b46e5.js.map": "/cvapp/static/js/main.746b46e5.js.map",
+    "453.47ed8d4d.chunk.js.map": "/cvapp/static/js/453.47ed8d4d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0c5da0df.css",
-    "static/js/main.03b0c087.js"
+    "static/js/main.746b46e5.js"
   ]
 }
