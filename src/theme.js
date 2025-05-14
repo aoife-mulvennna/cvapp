@@ -8,9 +8,7 @@ const theme = createTheme({
       dark: '#FE67A6',
       contrastText: '#75005B',
   },
-  layout:{
-    spacing: 4,
-  }
+
 });
 
 export default theme;

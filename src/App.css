@@ -5,5 +5,12 @@ flex-direction: column;
 }
 .App-header {
   align-items: center;
-  display:flex
+  display:flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.navigate-button {
+  margin: 10px !important;
+  display: flex;
 }

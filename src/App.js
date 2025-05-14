@@ -1,47 +1,24 @@
-
 import './App.css';
 import React from 'react';
-import Button from '@mui/material/Button';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Education from './Education';
+import Home from './Home';
 import theme from './theme';
-import { ThemeProvider, useTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
+
 function App() {
- 
   return (
     <ThemeProvider theme={theme}>
-    <div className="App" style={{ backgroundColor: theme.palette.main }}>
-      <header className="App-header">
-        
-        <p sx={{color: theme.palette.light}}>
-        Aoife Mulvenna - Software Engineer
-        </p>
-    
-      </header>
-        <Button variant="contained" sx={{
-            backgroundColor: theme.palette.dark,
-            color: theme.palette.light,
-            '&:hover': {
-              backgroundColor: theme.palette.contrastText, 
-              spacing: theme.layout.spacing,
-            },
-          }}>About Me</Button>
-        <Button variant="contained" sx={{
-            backgroundColor: theme.palette.dark,
-            color: theme.palette.light,
-            '&:hover': {
-              backgroundColor: theme.palette.contrastText, 
-            },
-          }}>Education</Button>
-        <Button variant="contained" sx={{
-            backgroundColor: theme.palette.dark,
-            color: theme.palette.light,
-            '&:hover': {
-              backgroundColor: theme.palette.contrastText, 
-            },
-          }}>Experience</Button>
-    </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Education" element={<Education />} />
+          <Route path="/Experience" element={<div>Experience</div>} />
+          <Route path="/AboutMe" element={<div>About Me</div>} />
+        </Routes>
+      </Router>
     </ThemeProvider>
   );
 }
 
-export default App; 
-
+export default App;
