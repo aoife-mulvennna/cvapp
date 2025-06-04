@@ -9,12 +9,14 @@ import {
   Button,
   useMediaQuery,
   useTheme,
+  Link,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import theme from "./theme";
 import { useNavigate } from "react-router-dom";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
-function Education() {
+function Projects() {
   const navigate = useNavigate();
 
   const muiTheme = useTheme();
@@ -83,7 +85,142 @@ function Education() {
           </Button>
         </Box>
 
-        <Card sx={{ mb: 4, backgroundColor: theme.palette.light }}>
+        <Card sx={{ mb: 4, backgroundColor: theme.palette.light, position:"relative" }}>
+          <CardContent>
+              <IconButton
+                component={Link}
+                href="https://github.com/aoife-mulvennna/taskmanager"
+                target="_blank"
+                rel="noopener"
+                sx={{
+                  position: "absolute",
+                  top: 8,
+                  right: 8,
+                  color: theme.palette.dark,
+                }}
+                aria-label="TaskManagerRepo"
+              >
+                <GitHubIcon fontSize="large" />
+              </IconButton>
+            
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Box>
+                <Typography
+                  variant="h6"
+                  sx={{ color: theme.palette.dark, fontWeight: "bold" }}
+                >
+                  Task Manager
+                </Typography>
+
+                <Typography
+                  variant="subtitle2"
+                  sx={{ color: theme.palette.contrastText }}
+                >
+                  Full Stack Web App
+                </Typography>
+              </Box>
+              {isSmallScreen && (
+                <IconButton
+                  onClick={() => setExpandedCard1(!expandedCard1)}
+                  sx={{ color: theme.palette.dark }}
+                  aria-label="toggle details"
+                >
+                  <ExpandMoreIcon
+                    sx={{
+                      transform: expandedCard1 ? "rotate(180deg)" : "none",
+                      transition: "transform 0.3s",
+                    }}
+                  />
+                </IconButton>
+              )}
+            </Box>
+            {(!isSmallScreen || expandedCard1) && (
+              <Box mt={2}>
+                <Typography variant="body2" sx={{ mb: 1 }}>
+                  - Developed a full-stack task manager using React, Spring
+                  Boot, and an H2 database.
+                  <br />- Designed an intuitive UI with Material UI and custom
+                  priority indicators using icons.
+                  <br />- Built and consumed RESTful APIs to manage tasks with
+                  real-time updates.
+                  <br />- Focused on clean code structure and user-friendly
+                  functionality.
+                </Typography>
+              </Box>
+            )}
+          </CardContent>
+        </Card>
+
+        <Card sx={{ mb: 4, backgroundColor: theme.palette.light, position:"relative"  }}>
+          <CardContent>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Box>
+                <Typography
+                  variant="h6"
+                  sx={{ color: theme.palette.dark, fontWeight: "bold" }}
+                >
+                  aoifemulvenna.com
+                </Typography>
+                <IconButton
+                  component={Link}
+                  href="https://github.com/aoife-mulvennna/cvapp"
+                  target="_blank"
+                  rel="noopener"
+                  sx={{
+                    position: "absolute",
+                    top: 8,
+                    right: 8,
+                    color: theme.palette.dark,
+                  }}
+                  aria-label="CvAppRepo"
+                >
+                  <GitHubIcon fontSize="large" />
+                </IconButton>
+
+                <Typography
+                  variant="subtitle2"
+                  sx={{ color: theme.palette.contrastText }}
+                >
+                  Front End Web App
+                </Typography>
+              </Box>
+              {isSmallScreen && (
+                <IconButton
+                  onClick={() => setExpandedCard1(!expandedCard1)}
+                  sx={{ color: theme.palette.dark }}
+                  aria-label="toggle details"
+                >
+                  <ExpandMoreIcon
+                    sx={{
+                      transform: expandedCard1 ? "rotate(180deg)" : "none",
+                      transition: "transform 0.3s",
+                    }}
+                  />
+                </IconButton>
+              )}
+            </Box>
+            {(!isSmallScreen || expandedCard1) && (
+              <Box mt={2}>
+                <Typography variant="body2" sx={{ mb: 1 }}>
+                  - This application is designed using React and the React MUI
+                  Library
+                  <br />- This was my first publicly deployed personal project,
+                  hosted using GitHub Pages.
+                </Typography>
+              </Box>
+            )}
+          </CardContent>
+        </Card>
+
+        <Card sx={{ mb: 4, backgroundColor: theme.palette.light, position:"relative"  }}>
           <CardContent>
             <Box
               display="flex"
@@ -97,6 +234,21 @@ function Education() {
                 >
                   Student Pulse
                 </Typography>
+                <IconButton
+                  component={Link}
+                  href="https://github.com/aoife-mulvennna/mood_individual_project"
+                  target="_blank"
+                  rel="noopener"
+                  sx={{
+                    position: "absolute",
+                    top: 8,
+                    right: 8,
+                    color: theme.palette.dark,
+                  }}
+                  aria-label="StudentPulseRepo"
+                >
+                  <GitHubIcon fontSize="large" />
+                </IconButton>
                 <Typography
                   variant="subtitle2"
                   sx={{ color: theme.palette.contrastText }}
@@ -125,6 +277,9 @@ function Education() {
                   - Designed and developed a web application to monitor student
                   wellness, providing personalised insights for students and
                   analytical tools for staff.
+                  <br />
+                  - The application was built using a React frontend and
+                  Express.js backend with a MySQL database
                   <br />- Built with a focus on usability, security, and
                   scalability. Used Tailwind CSS to create a clean, responsive
                   interface and accelerate development with utility-first
@@ -135,7 +290,7 @@ function Education() {
           </CardContent>
         </Card>
 
-        <Card sx={{ mb: 4, backgroundColor: theme.palette.light }}>
+        <Card sx={{ mb: 4, backgroundColor: theme.palette.light, position:"relative"  }}>
           <CardContent>
             <Box
               display="flex"
@@ -149,6 +304,22 @@ function Education() {
                 >
                   Tradecard
                 </Typography>
+                <IconButton
+                  component={Link}
+                  href="https://github.com/aoife-mulvennna/CSC7062-Pokemon"
+                  target="_blank"
+                  rel="noopener"
+                  sx={{
+                    position: "absolute",
+                    top: 8,
+                    right: 8,
+                    color: theme.palette.dark,
+                  }}
+                  aria-label="TradecardRepo"
+                >
+                  <GitHubIcon fontSize="large" />
+                </IconButton>
+
                 <Typography
                   variant="subtitle2"
                   sx={{ color: theme.palette.contrastText }}
@@ -174,20 +345,24 @@ function Education() {
             {(!isSmallScreen || expandedCard2) && (
               <Box mt={2}>
                 <Typography variant="body2" sx={{ mb: 1 }}>
-                  - Developed a full-stack trading platform with user
+                  - Developed a full-stack CRUD platform with user
                   authentication, data filtering, and collection management.{" "}
                   <br />
                   - Built a normalised MySQL database and ensured secure user
                   data handling.
-                  <br />- Delivered a responsive interface using Bootstrap and
-                  templated views, with version control via GitHub.
+                  <br />
+                  - Built the backend with Node.js and Express, and developed
+                  the frontend using HTML, JavaScript, and EJS (Embedded
+                  JavaScript Templates).
+                  <br />- Delivered a responsive interface using Bootstrap CSS
+                  and templated views, with version control via GitHub.
                 </Typography>
               </Box>
             )}
           </CardContent>
         </Card>
 
-        <Card sx={{ mb: 4, backgroundColor: theme.palette.light }}>
+        <Card sx={{ mb: 4, backgroundColor: theme.palette.light, position:"relative"  }}>
           <CardContent>
             <Box
               display="flex"
@@ -238,7 +413,7 @@ function Education() {
           </CardContent>
         </Card>
 
-        <Card sx={{ mb: 4, backgroundColor: theme.palette.light }}>
+        <Card sx={{ mb: 4, backgroundColor: theme.palette.light, position:"relative"  }}>
           <CardContent>
             <Box
               display="flex"
@@ -287,4 +462,4 @@ function Education() {
   );
 }
 
-export default Education;
+export default Projects;
