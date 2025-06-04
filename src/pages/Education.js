@@ -11,25 +11,27 @@ import {
   useTheme,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import theme from "./theme";
+import theme from "../theme";
 import { useNavigate } from "react-router-dom";
 
-function Experience() {
+function Education() {
   const navigate = useNavigate();
+
   const muiTheme = useTheme();
   const isSmallScreen = useMediaQuery(muiTheme.breakpoints.down("sm"));
 
-  //In future for other experiences, just add a new state!
   const [expandedCard1, setExpandedCard1] = useState(!isSmallScreen);
   const [expandedCard2, setExpandedCard2] = useState(!isSmallScreen);
-
+const [expandedCard3, setExpandedCard3] = useState(!isSmallScreen);
   useEffect(() => {
     if (!isSmallScreen) {
       setExpandedCard1(true);
       setExpandedCard2(true);
+      setExpandedCard3(true);
     } else {
       setExpandedCard1(false);
       setExpandedCard2(false);
+      setExpandedCard3(false);
     }
   }, [isSmallScreen]);
 
@@ -61,7 +63,7 @@ function Experience() {
             variant="h5"
             sx={{ color: theme.palette.contrastText, mb: 4 }}
           >
-            Experience
+            Education
           </Typography>
           <Button
             variant="contained"
@@ -90,13 +92,14 @@ function Experience() {
                   variant="h6"
                   sx={{ color: theme.palette.dark, fontWeight: "bold" }}
                 >
-                  Technology Consultant at EY
+                  MSc Software Development from Queen’s University Belfast with
+                  Commendation
                 </Typography>
                 <Typography
                   variant="subtitle2"
                   sx={{ color: theme.palette.contrastText }}
                 >
-                  September 2024 – Present
+                  Sept 2023 – Sept 2024
                 </Typography>
               </Box>
               {isSmallScreen && (
@@ -117,23 +120,20 @@ function Experience() {
             {(!isSmallScreen || expandedCard1) && (
               <Box mt={2}>
                 <Typography variant="body2" sx={{ mb: 1 }}>
-                  - Contributing to the System Engineering and Integration team,
-                  collaborating with colleagues across Ireland and broader
-                  Europe to deliver scalable solutions.
-                  <br />
-                  - Working across the full stack in Java Spring Boot, Oracle
-                  SQL and React, building and maintaining backend services and
-                  frontend components
-                  <br />
-                  - Responsible for release management to the testing
-                  environment, deploying the application using Microsoft Azure
-                  <br />
-                  - Operate in an Agile Scrum environment, using Azure DevOps to
-                  manage tasks, sprints, and deployments.
-                  <br />- Collaborated with fellow graduates on a thought
-                  leadership project, researching Generative AI and its
-                  applications in software development, and presented findings
-                  to senior leadership.
+                  - Programming: Focused on Java, including Object-Oriented
+                  Programming principles. <br />
+                  - Computing Foundations: Provided a strong theoretical
+                  basis in computing. <br />
+                  - Databases: Used MySQL for effective database design and
+                  management. <br />
+                  - Software Engineering: Covered agile methodologies and
+                  project planning techniques. <br />
+                  - Web Development: Developed a Full-Stack web application
+                  using JavaScript frameworks (Node.js and Express.js) and HTML
+                  and CSS. <br />
+                  - Individual Software Development Project: Developed a
+                  full-stack web mental health tracking application using
+                  React.js, Node.js and Express.js. <br />
                 </Typography>
               </Box>
             )}
@@ -152,13 +152,14 @@ function Experience() {
                   variant="h6"
                   sx={{ color: theme.palette.dark, fontWeight: "bold" }}
                 >
-                  Trainee Engineer at RPS Group
+                  BEng (Hons.) Civil Engineering from Queen’s University Belfast
+                  with 2:1
                 </Typography>
                 <Typography
                   variant="subtitle2"
                   sx={{ color: theme.palette.contrastText }}
                 >
-                  July 2021 - June 2022
+                  Sept 2019 – May 2023
                 </Typography>
               </Box>
               {isSmallScreen && (
@@ -179,14 +180,70 @@ function Experience() {
             {(!isSmallScreen || expandedCard2) && (
               <Box mt={2}>
                 <Typography variant="body2" sx={{ mb: 1 }}>
-                  - Utilised ArcGIS geographical information system and quickly
-                  gained confidence in this software. <br />
-                  - Guided colleagues who were less familiar with ArcGIS.
+                  - Modules: Design and Communications, Project Management and
+                  Engineering Data, Mathematics and Coding, Project, Structures
+                  and Hydraulics. <br />
+                  - Dissertation: Developed a MATLAB predictive analytics
+                  platform that takes recorded tidal data from Strangford Lough
+                  and predicts the annual energy that could be produced using a
+                  tidal stream-energy turbine. <br />- Completed a placement
+                  year (between Stages 2 and 3) at RPS Group, Belfast, as part
+                  of the flood risk management team.
+                </Typography>
+              </Box>
+            )}
+          </CardContent>
+        </Card>
+
+        <Card sx={{ mb: 4, backgroundColor: theme.palette.light }}>
+          <CardContent>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Box>
+                <Typography
+                  variant="h6"
+                  sx={{ color: theme.palette.dark, fontWeight: "bold" }}
+                >
+                  Awards and Acknowledgements
+                </Typography>
+              </Box>
+              {isSmallScreen && (
+                <IconButton
+                  onClick={() => setExpandedCard3(!expandedCard3)}
+                  sx={{ color: theme.palette.dark }}
+                  aria-label="toggle details"
+                >
+                  <ExpandMoreIcon
+                    sx={{
+                      transform: expandedCard3 ? "rotate(180deg)" : "none",
+                      transition: "transform 0.3s",
+                    }}
+                  />
+                </IconButton>
+              )}
+            </Box>
+            {(!isSmallScreen || expandedCard3) && (
+              <Box mt={2}>
+                <Typography variant="body2" sx={{ mb: 1 }}>
+                  - Degree Plus Award 2023- Awarded for my contribution to
+                  university societies, along with volunteering at the Queen’s
+                  Sport Active Campus Couch to 5k program. Within this, I
+                  developed leadership and coaching skills and completed a LIRF
+                  (Leadership In Running Fitness) qualification. <br />
+                  - Stage 2 Course Representative and Programming Module
+                  Representative – Involved listening to issues or suggestions
+                  from my peers and professionally relaying this information to
+                  senior lecturers. <br />
+                  - Member of the Queen’s Computing Society <br />
+                  - Secretary of Queen’s Engineering Society.
                   <br />
-                  - Balanced multiple projects with tight deadlines, developing
-                  effective time management skills.
-                  <br />- Collaborated with colleagues both online and in-person
-                  to foster a cohesive team dynamic.
+                  - Vice President and Social Secretary of the Queen’s Athletics
+                  Club.
+                  <br />- Organiser of the IUAA cross country 2024 and Queen’s
+                  5k 2024.
                 </Typography>
               </Box>
             )}
@@ -197,4 +254,4 @@ function Experience() {
   );
 }
 
-export default Experience;
+export default Education;

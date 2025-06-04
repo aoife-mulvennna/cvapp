@@ -12,7 +12,7 @@ import {
   Link,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import theme from "./theme";
+import theme from "../theme";
 import { useNavigate } from "react-router-dom";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
@@ -26,17 +26,23 @@ function Projects() {
   const [expandedCard2, setExpandedCard2] = useState(!isSmallScreen);
   const [expandedCard3, setExpandedCard3] = useState(!isSmallScreen);
   const [expandedCard4, setExpandedCard4] = useState(!isSmallScreen);
+  const [expandedCard5, setExpandedCard5] = useState(!isSmallScreen);
+  const [expandedCard6, setExpandedCard6] = useState(!isSmallScreen);
   useEffect(() => {
     if (!isSmallScreen) {
       setExpandedCard1(true);
       setExpandedCard2(true);
       setExpandedCard3(true);
       setExpandedCard4(true);
+      setExpandedCard5(true);
+      setExpandedCard6(false);
     } else {
       setExpandedCard1(false);
       setExpandedCard2(false);
       setExpandedCard3(false);
       setExpandedCard4(false);
+      setExpandedCard5(false);
+      setExpandedCard6(false);
     }
   }, [isSmallScreen]);
 
@@ -85,24 +91,31 @@ function Projects() {
           </Button>
         </Box>
 
-        <Card sx={{ mb: 4, backgroundColor: theme.palette.light, position:"relative" }}>
+        <Card
+          sx={{
+            mb: 4,
+            backgroundColor: theme.palette.light,
+            position: "relative",
+          }}
+        >
           <CardContent>
-              <IconButton
-                component={Link}
-                href="https://github.com/aoife-mulvennna/taskmanager"
-                target="_blank"
-                rel="noopener"
-                sx={{
-                  position: "absolute",
-                  top: 8,
-                  right: 8,
-                  color: theme.palette.dark,
-                }}
-                aria-label="TaskManagerRepo"
-              >
-                <GitHubIcon fontSize="large" />
-              </IconButton>
-            
+          {!isSmallScreen && (
+            <IconButton
+              component={Link}
+              href="https://github.com/aoife-mulvennna/taskmanager"
+              target="_blank"
+              rel="noopener"
+              sx={{
+                position: "absolute",
+                top: 8,
+                right: 8,
+                color: theme.palette.dark,
+              }}
+              aria-label="TaskManagerRepo"
+            >
+              <GitHubIcon fontSize="large" />
+            </IconButton>
+          )}
             <Box
               display="flex"
               justifyContent="space-between"
@@ -125,20 +138,20 @@ function Projects() {
               </Box>
               {isSmallScreen && (
                 <IconButton
-                  onClick={() => setExpandedCard1(!expandedCard1)}
+                  onClick={() => setExpandedCard6(!expandedCard6)}
                   sx={{ color: theme.palette.dark }}
                   aria-label="toggle details"
                 >
                   <ExpandMoreIcon
                     sx={{
-                      transform: expandedCard1 ? "rotate(180deg)" : "none",
+                      transform: expandedCard6 ? "rotate(180deg)" : "none",
                       transition: "transform 0.3s",
                     }}
                   />
                 </IconButton>
               )}
             </Box>
-            {(!isSmallScreen || expandedCard1) && (
+            {(!isSmallScreen || expandedCard6) && (
               <Box mt={2}>
                 <Typography variant="body2" sx={{ mb: 1 }}>
                   - Developed a full-stack task manager using React, Spring
@@ -155,7 +168,13 @@ function Projects() {
           </CardContent>
         </Card>
 
-        <Card sx={{ mb: 4, backgroundColor: theme.palette.light, position:"relative"  }}>
+        <Card
+          sx={{
+            mb: 4,
+            backgroundColor: theme.palette.light,
+            position: "relative",
+          }}
+        >
           <CardContent>
             <Box
               display="flex"
@@ -169,6 +188,7 @@ function Projects() {
                 >
                   aoifemulvenna.com
                 </Typography>
+                {!isSmallScreen && (
                 <IconButton
                   component={Link}
                   href="https://github.com/aoife-mulvennna/cvapp"
@@ -184,7 +204,7 @@ function Projects() {
                 >
                   <GitHubIcon fontSize="large" />
                 </IconButton>
-
+                )}
                 <Typography
                   variant="subtitle2"
                   sx={{ color: theme.palette.contrastText }}
@@ -194,20 +214,20 @@ function Projects() {
               </Box>
               {isSmallScreen && (
                 <IconButton
-                  onClick={() => setExpandedCard1(!expandedCard1)}
+                  onClick={() => setExpandedCard5(!expandedCard5)}
                   sx={{ color: theme.palette.dark }}
                   aria-label="toggle details"
                 >
                   <ExpandMoreIcon
                     sx={{
-                      transform: expandedCard1 ? "rotate(180deg)" : "none",
+                      transform: expandedCard5 ? "rotate(180deg)" : "none",
                       transition: "transform 0.3s",
                     }}
                   />
                 </IconButton>
               )}
             </Box>
-            {(!isSmallScreen || expandedCard1) && (
+            {(!isSmallScreen || expandedCard5) && (
               <Box mt={2}>
                 <Typography variant="body2" sx={{ mb: 1 }}>
                   - This application is designed using React and the React MUI
@@ -220,7 +240,13 @@ function Projects() {
           </CardContent>
         </Card>
 
-        <Card sx={{ mb: 4, backgroundColor: theme.palette.light, position:"relative"  }}>
+        <Card
+          sx={{
+            mb: 4,
+            backgroundColor: theme.palette.light,
+            position: "relative",
+          }}
+        >
           <CardContent>
             <Box
               display="flex"
@@ -234,6 +260,7 @@ function Projects() {
                 >
                   Student Pulse
                 </Typography>
+                {!isSmallScreen && (
                 <IconButton
                   component={Link}
                   href="https://github.com/aoife-mulvennna/mood_individual_project"
@@ -249,6 +276,7 @@ function Projects() {
                 >
                   <GitHubIcon fontSize="large" />
                 </IconButton>
+                )}
                 <Typography
                   variant="subtitle2"
                   sx={{ color: theme.palette.contrastText }}
@@ -258,20 +286,20 @@ function Projects() {
               </Box>
               {isSmallScreen && (
                 <IconButton
-                  onClick={() => setExpandedCard1(!expandedCard1)}
+                  onClick={() => setExpandedCard4(!expandedCard4)}
                   sx={{ color: theme.palette.dark }}
                   aria-label="toggle details"
                 >
                   <ExpandMoreIcon
                     sx={{
-                      transform: expandedCard1 ? "rotate(180deg)" : "none",
+                      transform: expandedCard4 ? "rotate(180deg)" : "none",
                       transition: "transform 0.3s",
                     }}
                   />
                 </IconButton>
               )}
             </Box>
-            {(!isSmallScreen || expandedCard1) && (
+            {(!isSmallScreen || expandedCard4) && (
               <Box mt={2}>
                 <Typography variant="body2" sx={{ mb: 1 }}>
                   - Designed and developed a web application to monitor student
@@ -290,7 +318,13 @@ function Projects() {
           </CardContent>
         </Card>
 
-        <Card sx={{ mb: 4, backgroundColor: theme.palette.light, position:"relative"  }}>
+        <Card
+          sx={{
+            mb: 4,
+            backgroundColor: theme.palette.light,
+            position: "relative",
+          }}
+        >
           <CardContent>
             <Box
               display="flex"
@@ -304,6 +338,7 @@ function Projects() {
                 >
                   Tradecard
                 </Typography>
+                {!isSmallScreen && (
                 <IconButton
                   component={Link}
                   href="https://github.com/aoife-mulvennna/CSC7062-Pokemon"
@@ -319,7 +354,7 @@ function Projects() {
                 >
                   <GitHubIcon fontSize="large" />
                 </IconButton>
-
+                )}
                 <Typography
                   variant="subtitle2"
                   sx={{ color: theme.palette.contrastText }}
@@ -329,20 +364,20 @@ function Projects() {
               </Box>
               {isSmallScreen && (
                 <IconButton
-                  onClick={() => setExpandedCard2(!expandedCard2)}
+                  onClick={() => setExpandedCard3(!expandedCard3)}
                   sx={{ color: theme.palette.dark }}
                   aria-label="toggle details"
                 >
                   <ExpandMoreIcon
                     sx={{
-                      transform: expandedCard2 ? "rotate(180deg)" : "none",
+                      transform: expandedCard3 ? "rotate(180deg)" : "none",
                       transition: "transform 0.3s",
                     }}
                   />
                 </IconButton>
               )}
             </Box>
-            {(!isSmallScreen || expandedCard2) && (
+            {(!isSmallScreen || expandedCard3) && (
               <Box mt={2}>
                 <Typography variant="body2" sx={{ mb: 1 }}>
                   - Developed a full-stack CRUD platform with user
@@ -362,7 +397,13 @@ function Projects() {
           </CardContent>
         </Card>
 
-        <Card sx={{ mb: 4, backgroundColor: theme.palette.light, position:"relative"  }}>
+        <Card
+          sx={{
+            mb: 4,
+            backgroundColor: theme.palette.light,
+            position: "relative",
+          }}
+        >
           <CardContent>
             <Box
               display="flex"
@@ -385,20 +426,20 @@ function Projects() {
               </Box>
               {isSmallScreen && (
                 <IconButton
-                  onClick={() => setExpandedCard3(!expandedCard3)}
+                  onClick={() => setExpandedCard2(!expandedCard2)}
                   sx={{ color: theme.palette.dark }}
                   aria-label="toggle details"
                 >
                   <ExpandMoreIcon
                     sx={{
-                      transform: expandedCard3 ? "rotate(180deg)" : "none",
+                      transform: expandedCard2 ? "rotate(180deg)" : "none",
                       transition: "transform 0.3s",
                     }}
                   />
                 </IconButton>
               )}
             </Box>
-            {(!isSmallScreen || expandedCard3) && (
+            {(!isSmallScreen || expandedCard2) && (
               <Box mt={2}>
                 <Typography variant="body2" sx={{ mb: 1 }}>
                   - Built a multiplayer console-based board game using
@@ -413,7 +454,13 @@ function Projects() {
           </CardContent>
         </Card>
 
-        <Card sx={{ mb: 4, backgroundColor: theme.palette.light, position:"relative"  }}>
+        <Card
+          sx={{
+            mb: 4,
+            backgroundColor: theme.palette.light,
+            position: "relative",
+          }}
+        >
           <CardContent>
             <Box
               display="flex"
@@ -430,20 +477,20 @@ function Projects() {
               </Box>
               {isSmallScreen && (
                 <IconButton
-                  onClick={() => setExpandedCard4(!expandedCard4)}
+                  onClick={() => setExpandedCard1(!expandedCard1)}
                   sx={{ color: theme.palette.dark }}
                   aria-label="toggle details"
                 >
                   <ExpandMoreIcon
                     sx={{
-                      transform: expandedCard4 ? "rotate(180deg)" : "none",
+                      transform: expandedCard1 ? "rotate(180deg)" : "none",
                       transition: "transform 0.3s",
                     }}
                   />
                 </IconButton>
               )}
             </Box>
-            {(!isSmallScreen || expandedCard4) && (
+            {(!isSmallScreen || expandedCard1) && (
               <Box mt={2}>
                 <Typography variant="body2" sx={{ mb: 1 }}>
                   - Developed a predictive analysis tool using MATLAB, to

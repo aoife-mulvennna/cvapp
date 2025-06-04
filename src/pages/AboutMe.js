@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import theme from "./theme";
+import theme from "../theme";
 import { useNavigate } from "react-router-dom";
 import {
   Box,

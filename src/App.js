@@ -1,11 +1,11 @@
 import "./App.css";
 import React from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import Education from "./Education";
-import Experience from "./Experience";
-import AboutMe from "./AboutMe";
-import Projects from "./Projects";
-import Home from "./Home";
+import Education from "./pages/Education";
+import Experience from "./pages/Experience";
+import AboutMe from "./pages/AboutMe";
+import Projects from "./pages/Projects";
+import Home from "./pages/Home";
 import theme from "./theme";
 import { ThemeProvider } from "@mui/material/styles";
 function App() {
