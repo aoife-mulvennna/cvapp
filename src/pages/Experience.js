@@ -77,8 +77,7 @@ function Experience() {
             Home
           </Button>
         </Box>
-
-        <Card sx={{ mb: 4, backgroundColor: theme.palette.light }}>
+ <Card sx={{ mb: 4, backgroundColor: theme.palette.light }}>
           <CardContent>
             <Box
               display="flex"
@@ -90,13 +89,13 @@ function Experience() {
                   variant="h6"
                   sx={{ color: theme.palette.dark, fontWeight: "bold" }}
                 >
-                  Technology Consultant at EY
+                  Associate Software Engineer at Verint
                 </Typography>
                 <Typography
                   variant="subtitle2"
                   sx={{ color: theme.palette.contrastText }}
                 >
-                  September 2024 – Present
+                  August 2025 – Present
                 </Typography>
               </Box>
               {isSmallScreen && (
@@ -117,18 +116,78 @@ function Experience() {
             {(!isSmallScreen || expandedCard1) && (
               <Box mt={2}>
                 <Typography variant="body2" sx={{ mb: 1 }}>
-                  - Contributing to the System Engineering and Integration team,
-                  collaborating with colleagues across Ireland and broader
-                  Europe to deliver scalable solutions.
+                  - Responsible for building and enhancing distributed backend services with Java and Spring Boot,
+delivering robust API and webhook integrations with external social platforms while designing
+and managing MongoDB data models to support scalable, reliable processing.
                   <br />
-                  - Working across the full stack in Java Spring Boot, Oracle
-                  SQL and React, building and maintaining backend services and
-                  frontend components
+                  - Utilises AWS services including S3, Secrets Manager and CloudWatch to support secure file
+handling, configuration management, structured logging, and production observability using
+Kibana and CloudWatch.
+                  <br />
+                  - Contributes to CI/CD pipelines using GitHub Actions and Jenkins, enabling automated quality
+checks, security scanning, Docker image builds, and deployments to Kubernetes-based
+development and production environments.
+                  <br />
+                  - Takes ownership of end-to-end feature delivery, from solution design and implementation
+through testing, QA validation, and production release, while conducting peer code reviews to
+uphold coding standards and drive high quality outcomes.
+                  <br />- Actively contributes to Agile ceremonies including sprint planning, stand-ups, and
+retrospectives, using Jira to manage tickets, refine requirements, and track delivery against sprint
+goals.
+                </Typography>
+              </Box>
+            )}
+          </CardContent>
+        </Card>
+        <Card sx={{ mb: 4, backgroundColor: theme.palette.light }}>
+          <CardContent>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Box>
+                <Typography
+                  variant="h6"
+                  sx={{ color: theme.palette.dark, fontWeight: "bold" }}
+                >
+                  Technology Consultant at EY
+                </Typography>
+                <Typography
+                  variant="subtitle2"
+                  sx={{ color: theme.palette.contrastText }}
+                >
+                  September 2024 – August 2025
+                </Typography>
+              </Box>
+              {isSmallScreen && (
+                <IconButton
+                  onClick={() => setExpandedCard1(!expandedCard1)}
+                  sx={{ color: theme.palette.dark }}
+                  aria-label="toggle details"
+                >
+                  <ExpandMoreIcon
+                    sx={{
+                      transform: expandedCard1 ? "rotate(180deg)" : "none",
+                      transition: "transform 0.3s",
+                    }}
+                  />
+                </IconButton>
+              )}
+            </Box>
+            {(!isSmallScreen || expandedCard1) && (
+              <Box mt={2}>
+                <Typography variant="body2" sx={{ mb: 1 }}>
+                  - Contributed to the System Engineering and Integration team, collaborating with colleagues
+across Ireland and broader Europe to deliver scalable solutions.
+                  <br />
+                  - Worked across the full stack in Java Spring Boot, Oracle SQL and React, building and maintaining
+backend services and frontend components
                   <br />
                   - Responsible for release management to the testing
                   environment, deploying the application using Microsoft Azure
                   <br />
-                  - Operate in an Agile Scrum environment, using Azure DevOps to
+                  - Operated in an Agile Scrum environment, using Azure DevOps to
                   manage tasks, sprints, and deployments.
                   <br />- Collaborated with fellow graduates on a thought
                   leadership project, researching Generative AI and its
