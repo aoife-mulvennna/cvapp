@@ -102,7 +102,7 @@ function Projects() {
           {!isSmallScreen && (
             <IconButton
               component={Link}
-              href="https://github.com/aoife-mulvennna/taskmanager"
+              href="https://github.com/aoife-mulvennna/flashcards"
               target="_blank"
               rel="noopener"
               sx={{
