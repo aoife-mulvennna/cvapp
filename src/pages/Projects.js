@@ -90,7 +90,79 @@ function Projects() {
             Home
           </Button>
         </Box>
+     <Card
+          sx={{
+            mb: 4,
+            backgroundColor: theme.palette.light,
+            position: "relative",
+          }}
+        >
+          <CardContent>
+          {!isSmallScreen && (
+            <IconButton
+              component={Link}
+              href="https://github.com/aoife-mulvennna/flashcards"
+              target="_blank"
+              rel="noopener"
+              sx={{
+                position: "absolute",
+                top: 8,
+                right: 8,
+                color: theme.palette.dark,
+              }}
+              aria-label="FlashcardRepo"
+            >
+              <GitHubIcon fontSize="large" />
+            </IconButton>
+          )}
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Box>
+                <Typography
+                  variant="h6"
+                  sx={{ color: theme.palette.dark, fontWeight: "bold" }}
+                >
+                  Flashcards
+                </Typography>
 
+                <Typography
+                  variant="subtitle2"
+                  sx={{ color: theme.palette.contrastText }}
+                >
+                  Full Stack Web App
+                </Typography>
+              </Box>
+              {isSmallScreen && (
+                <IconButton
+                  onClick={() => setExpandedCard6(!expandedCard6)}
+                  sx={{ color: theme.palette.dark }}
+                  aria-label="toggle details"
+                >
+                  <ExpandMoreIcon
+                    sx={{
+                      transform: expandedCard6 ? "rotate(180deg)" : "none",
+                      transition: "transform 0.3s",
+                    }}
+                  />
+                </IconButton>
+              )}
+            </Box>
+            {(!isSmallScreen || expandedCard6) && (
+              <Box mt={2}>
+                <Typography variant="body2" sx={{ mb: 1 }}>
+                  - Developing a full-stack flashcard learning platform using Java Spring Boot, Angular 18, and PostgreSQL.
+                  <br />- Designing relational data models in PostgreSQL to efficiently manage flashcards, subject decks, and user progress.
+<br />- Containerising the PostgreSQL database using Docker Compose to provide a consistent and reproducible development environment.
+<br /> - Implementing JWT authentication with Spring Security and Angular route guards.
+                  <br />- Built with purpose to study software concepts 
+                </Typography>
+              </Box>
+            )}
+          </CardContent>
+        </Card>
         <Card
           sx={{
             mb: 4,
