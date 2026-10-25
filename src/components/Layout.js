@@ -15,7 +15,15 @@ function Layout({ children }) {
   return (
     <>
       <StarField />
-      <Box component="main" sx={{ position: "relative", zIndex: 1, minHeight: "100vh", pb: 8 }}>
+      <Box component="main" sx={{
+          position: "relative",
+          zIndex: 1,
+          boxSizing: "border-box",
+          minHeight: "100vh",
+          pb: 8,
+          display: "flex",
+          flexDirection: "column",
+        }}>
         {!isHome && (
           <Container maxWidth="md" sx={{ pt: { xs: 3, md: 5 } }}>
             <Link

@@ -25,7 +25,111 @@ code {
   }
 }
 
+/* Running girl on the About Me page; one stride is 0.6s.
+   The run-across duration is set per screen width in Runner.js. */
+.runner {
+  animation: run-across 10s linear infinite;
+}
+.runner-bob {
+  animation: run-bob 0.3s ease-in-out infinite alternate;
+}
+.runner-leg {
+  animation: leg-swing 0.6s linear infinite;
+}
+.runner-arm {
+  animation: arm-swing 0.6s ease-in-out infinite;
+}
+.runner-knee {
+  animation: knee-bend 0.6s linear infinite;
+}
+.runner-ponytail {
+  animation: ponytail-bounce 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes run-across {
+  from {
+    left: -100px;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes run-bob {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-4px);
+  }
+}
+
+/* Thigh angle through one stride: push off behind, pass under,
+   drive the knee up in front, reach forward, land under the body. */
+@keyframes leg-swing {
+  0%,
+  100% {
+    transform: rotate(40deg);
+  }
+  20% {
+    transform: rotate(5deg);
+  }
+  40% {
+    transform: rotate(-75deg);
+  }
+  55% {
+    transform: rotate(-55deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes arm-swing {
+  0%,
+  100% {
+    transform: rotate(35deg);
+  }
+  50% {
+    transform: rotate(-35deg);
+  }
+}
+
+/* Knee bend matching the thigh: heel kicks up as the leg passes under,
+   stays folded while the knee lifts, then opens to reach forward. */
+@keyframes knee-bend {
+  0%,
+  100% {
+    transform: rotate(25deg);
+  }
+  20% {
+    transform: rotate(115deg);
+  }
+  40% {
+    transform: rotate(100deg);
+  }
+  55% {
+    transform: rotate(35deg);
+  }
+  75% {
+    transform: rotate(30deg);
+  }
+}
+
+@keyframes ponytail-bounce {
+  from {
+    transform: rotate(-8deg);
+  }
+  to {
+    transform: rotate(10deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .runner,
+  .runner * {
+    animation: none !important;
+  }
   *,
   *::before,
   *::after {
