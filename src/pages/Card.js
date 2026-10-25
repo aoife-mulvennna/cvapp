@@ -2,84 +2,93 @@ import React, { useState } from "react";
 import {
   Box,
   Typography,
-  Card,
-  CardContent,
   IconButton,
+  Collapse,
+  Link,
   useMediaQuery,
   useTheme,
-  Link,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import theme from "../theme";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { brand } from "../theme";
 
 function CardComponent(props) {
-  const { title, shortDescription, description, github, isSmallScreen: propIsSmallScreen } = props;
+  const { title, shortDescription, meta, description, bullets, isSmallScreen: propIsSmallScreen } = props;
+  const github = props.github || props.repoLink;
   const muiTheme = useTheme();
   const mediaIsSmallScreen = useMediaQuery(muiTheme.breakpoints.down("sm"));
   const isSmallScreen = typeof propIsSmallScreen === "boolean" ? propIsSmallScreen : mediaIsSmallScreen;
   const [expanded, setExpanded] = useState(false);
+  const hasBody = Boolean(description || bullets || github);
+  const collapsible = isSmallScreen && hasBody;
 
   return (
-    <Card
+    <Box
       sx={{
-        mb: 4,
-        backgroundColor: theme.palette.light,
-        position: "relative",
+        py: { xs: 3, sm: 4 },
+        borderTop: `1px solid ${brand.border}`,
       }}
     >
-      <CardContent>
-        {!isSmallScreen && github && (
-          <IconButton
-            component={Link}
-            href={github}
-            target="_blank"
-            rel="noopener"
-            sx={{
-              position: "absolute",
-              top: 8,
-              right: 8,
-              color: theme.palette.dark,
-            }}
-            aria-label={title + " GitHub Repository"}
-          >
-            <GitHubIcon fontSize="large" />
-          </IconButton>
-        )}
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Box>
-            <Typography variant="h6" sx={{ color: theme.palette.dark, fontWeight: "bold" }}>
-              {title}
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="flex-start"
+        gap={2}
+        onClick={collapsible ? () => setExpanded(!expanded) : undefined}
+        sx={{ cursor: collapsible ? "pointer" : "default" }}
+      >
+        <Box>
+          <Typography variant="h6" component="h2" sx={{ color: brand.ink }}>
+            {title}
+          </Typography>
+          {shortDescription && (
+            <Typography sx={{ color: brand.pink, fontWeight: 500 }}>{shortDescription}</Typography>
+          )}
+          {meta && (
+            <Typography variant="body2" sx={{ color: brand.muted, mt: 0.5 }}>
+              {meta}
             </Typography>
-
-            <Typography variant="subtitle2" sx={{ color: theme.palette.contrastText }}>
-              {shortDescription}
-            </Typography>
-          </Box>
-          {isSmallScreen && (
-            <IconButton
-              onClick={() => setExpanded(!expanded)}
-              sx={{ color: theme.palette.dark }}
-              aria-label="toggle details"
-            >
-              <ExpandMoreIcon
-                sx={{
-                  transform: expanded ? "rotate(180deg)" : "none",
-                  transition: "transform 0.3s",
-                }}
-              />
-            </IconButton>
           )}
         </Box>
-        {(!isSmallScreen || expanded) && (
-          <Box mt={2}>
-            <Typography variant="body2" sx={{ mb: 1 }}>
+        {collapsible && (
+          <IconButton sx={{ color: brand.plum, mt: -0.5 }} aria-label="toggle details" aria-expanded={expanded}>
+            <ExpandMoreIcon
+              sx={{ transform: expanded ? "rotate(180deg)" : "none", transition: "transform 0.3s" }}
+            />
+          </IconButton>
+        )}
+      </Box>
+
+      {hasBody && (
+        <Collapse in={!isSmallScreen || expanded} timeout="auto">
+          {description && (
+            <Typography variant="body2" sx={{ color: brand.muted, lineHeight: 1.7, mt: 2 }}>
               {description}
             </Typography>
-          </Box>
-        )}
-      </CardContent>
-    </Card>
+          )}
+          {bullets && (
+            <Box component="ul" sx={{ mt: 2, mb: 0, pl: 2.5, color: brand.muted }}>
+              {bullets.map((b) => (
+                <Typography key={b} component="li" variant="body2" sx={{ mb: 0.75, lineHeight: 1.7 }}>
+                  {b}
+                </Typography>
+              ))}
+            </Box>
+          )}
+          {github && (
+            <Link
+              href={github}
+              target="_blank"
+              rel="noopener"
+              aria-label={title + " GitHub Repository"}
+              sx={{ display: "inline-flex", alignItems: "center", gap: 0.75, mt: 2, color: brand.plum, fontWeight: 500 }}
+            >
+              <GitHubIcon fontSize="small" /> View on GitHub
+            </Link>
+          )}
+        </Collapse>
+      )}
+    </Box>
   );
 }
 

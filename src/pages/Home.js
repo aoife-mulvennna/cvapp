@@ -1,77 +1,56 @@
 import React from "react";
-import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
-import theme from "../theme";
-import { Box, Typography, Container } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
+import { Box, Container, Link, Typography } from "@mui/material";
+import { brand } from "../theme";
+import SocialLinks from "../components/SocialLinks";
+
+const sections = [
+  { label: "Experience", to: "/Experience" },
+  { label: "Education", to: "/Education" },
+  { label: "Projects", to: "/Projects" },
+  { label: "About Me", to: "/AboutMe" },
+];
+
 function Home() {
-  const navigate = useNavigate();
-  const buttonStyle = {
-    backgroundColor: theme.palette.dark,
-    color: theme.palette.light,
-    fontWeight: "bold",
-    padding: "10px 20px",
-    "&:hover": {
-      backgroundColor: theme.palette.contrastText,
-      color: theme.palette.light,
-    },
-  };
-
   return (
-    <div
-      className="App"
-      style={{
-        backgroundColor: theme.palette.main,
-        minHeight: "100vh",
-        paddingTop: "40px",
-      }}
-    >
-      <Container maxWidth="sm" sx={{ textAlign: "center" }}>
-        <Typography
-          variant="h3"
-          sx={{ color: theme.palette.contrastText, fontWeight: "bold", mb: 2 }}
-        >
-          Aoife Mulvenna
-        </Typography>
-        <Typography
-          variant="h5"
-          sx={{ color: theme.palette.contrastText, mb: 4 }}
-        >
-          Software Engineer
-        </Typography>
+    <Container maxWidth="md" sx={{ pt: { xs: 8, md: 14 } }}>
+      <Typography variant="h1" sx={{ fontSize: { xs: "2.2rem", md: "3rem" }, color: brand.plum }}>
+        Aoife Mulvenna
+      </Typography>
+      <Typography sx={{ fontSize: "1.1rem", color: brand.muted, mt: 1 }}>
+        Junior Software Engineer at Just Eat Takeaway.com
+      </Typography>
 
-        <Box display="flex" flexDirection="column" gap={2}>
-          <Button
-            variant="contained"
-            sx={buttonStyle}
-            onClick={() => navigate("/Experience")}
+      <Box component="nav" sx={{ mt: 6, borderTop: `1px solid ${brand.border}` }}>
+        {sections.map((s) => (
+          <Link
+            key={s.to}
+            component={RouterLink}
+            to={s.to}
+            underline="none"
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              py: 2.5,
+              fontSize: { xs: "1.25rem", md: "1.5rem" },
+              fontWeight: 500,
+              color: brand.ink,
+              borderBottom: `1px solid ${brand.border}`,
+              transition: "color 0.2s, padding 0.2s",
+              "&:hover": { color: brand.pink, pl: 1 },
+            }}
           >
-            Experience
-          </Button>
-          <Button
-            variant="contained"
-            sx={buttonStyle}
-            onClick={() => navigate("/Education")}
-          >
-            Education
-          </Button>
+            {s.label}
+            <span aria-hidden>→</span>
+          </Link>
+        ))}
+      </Box>
 
-          <Button
-            variant="contained"
-            sx={buttonStyle}
-            onClick={() => navigate("/Projects")}
-          >
-            Software Projects
-          </Button>
-          <Button
-            variant="contained"
-            sx={buttonStyle}
-            onClick={() => navigate("/AboutMe")}
-          >
-            About Me | Contact
-          </Button>
-        </Box>
-      </Container>
-    </div>
+      <Box mt={4} ml={-1}>
+        <SocialLinks />
+      </Box>
+    </Container>
   );
 }
 
